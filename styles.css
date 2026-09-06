@@ -9,6 +9,15 @@
   --color-light-blue: #f4f8ff;
   --color-wave-blue: #d9e9ff;
   --color-card-shadow: rgba(168, 198, 245, 0.38);
+  --color-header-bg: rgba(255, 255, 255, 0.72);
+  --color-hero-overlay-mid: rgba(255, 255, 255, 0.92);
+  --color-hero-overlay-end: rgba(255, 255, 255, 0.05);
+  --color-procedure-overlay-start: rgba(1, 31, 74, 0);
+  --color-procedure-overlay-end: rgba(1, 31, 74, 0.92);
+  --color-mobile-overlay-start: rgba(255, 255, 255, 0.96);
+  --color-mobile-overlay-mid: rgba(255, 255, 255, 0.75);
+  --color-mobile-overlay-end: rgba(255, 255, 255, 0.14);
+  --color-transparent: transparent;
 }
 
 * {
@@ -55,7 +64,14 @@ input {
 
 button,
 a {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: var(--color-transparent);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-primary-blue);
+  outline-offset: 3px;
 }
 
 .container {
@@ -109,8 +125,7 @@ a {
 .primary-button:hover,
 .primary-button:focus-visible {
   color: var(--color-primary-dark);
-  background-color: transparent;
-  outline: none;
+  background-color: var(--color-transparent);
 }
 
 /* Header */
@@ -120,7 +135,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.72);
+  background-color: var(--color-header-bg);
   backdrop-filter: blur(10px);
 }
 
@@ -161,7 +176,6 @@ a {
 .nav-link:hover,
 .nav-link:focus-visible {
   color: var(--color-primary-blue);
-  outline: none;
 }
 
 .social-list {
@@ -177,12 +191,32 @@ a {
   width: 32px;
   height: 32px;
   color: var(--color-primary-dark);
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
   text-decoration: none;
+}
+
+.social-icon {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.social-icon path {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-icon rect,
+.social-icon circle:not(.icon-dot) {
+  fill: none;
+  stroke: currentColor;
+}
+
+.social-icon .icon-dot {
+  fill: currentColor;
+  stroke: none;
 }
 
 /* Hero */
@@ -190,7 +224,12 @@ a {
   min-height: 660px;
   padding: 190px 0 100px;
   background-image:
-    linear-gradient(90deg, var(--color-primary-white) 0%, rgba(255, 255, 255, 0.92) 31%, rgba(255, 255, 255, 0.05) 70%),
+    linear-gradient(
+      90deg,
+      var(--color-primary-white) 0%,
+      var(--color-hero-overlay-mid) 31%,
+      var(--color-hero-overlay-end) 70%
+    ),
     url("./images/hero-doctor.webp");
   background-repeat: no-repeat;
   background-position: center, right center;
@@ -203,6 +242,7 @@ a {
 
 .hero-eyebrow {
   margin-bottom: 14px;
+  color: var(--color-primary-dark);
   font-size: 18px;
 }
 
@@ -243,6 +283,7 @@ a {
 .about-text {
   max-width: 700px;
   margin-bottom: 22px;
+  color: var(--color-primary-dark);
   font-size: 22px;
   line-height: 1.7;
 }
@@ -341,10 +382,12 @@ a {
 
 .advantage-icon {
   display: block;
-  margin-bottom: 10px;
-  color: var(--color-primary-blue);
-  font-size: 44px;
-  line-height: 1;
+  margin: 0 auto 10px;
+  fill: none;
+  stroke: var(--color-primary-blue);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .advantage-text {
@@ -358,6 +401,13 @@ a {
 .procedures-title,
 .contacts-title {
   text-align: center;
+}
+
+.procedures-slider {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 24px;
 }
 
 .procedures-list {
@@ -378,7 +428,11 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(1, 31, 74, 0) 45%, rgba(1, 31, 74, 0.92) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-procedure-overlay-start) 45%,
+    var(--color-procedure-overlay-end) 100%
+  );
 }
 
 .procedure-image {
@@ -399,6 +453,56 @@ a {
   font-weight: 400;
   line-height: 1.2;
   text-align: center;
+}
+
+.carousel-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  color: var(--color-primary-dark);
+  background-color: var(--color-transparent);
+  border: 1px solid var(--color-primary-dark);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.carousel-button svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel-button:hover,
+.carousel-button:focus-visible {
+  color: var(--color-primary-white);
+  background-color: var(--color-primary-blue);
+  border-color: var(--color-primary-blue);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.pagination-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  background-color: var(--color-secondary-gray);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pagination-dot-active {
+  background-color: var(--color-primary-blue);
 }
 
 /* Contacts */
@@ -451,10 +555,9 @@ a {
   margin-bottom: 16px;
   padding: 16px 28px;
   color: var(--color-primary-white);
-  background-color: transparent;
+  background-color: var(--color-transparent);
   border: 2px solid var(--color-secondary-gray);
   border-radius: 32px;
-  outline: none;
 }
 
 .form-input::placeholder {
@@ -462,8 +565,10 @@ a {
   opacity: 0.85;
 }
 
-.form-input:focus {
+.form-input:focus,
+.form-input:focus-visible {
   border-color: var(--color-primary-blue);
+  outline: none;
 }
 
 .form-button {
@@ -521,7 +626,6 @@ a {
 .footer-link:hover,
 .footer-link:focus-visible {
   color: var(--color-primary-blue);
-  outline: none;
 }
 
 .footer-address {
@@ -559,6 +663,16 @@ a {
   bottom: -94px;
   width: 180px;
   opacity: 0.58;
+}
+
+@media (max-width: 1080px) {
+  .procedures-slider {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-button {
+    display: none;
+  }
 }
 
 @media (max-width: 980px) {
@@ -625,7 +739,12 @@ a {
     min-height: 620px;
     padding: 100px 0 72px;
     background-image:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.75) 42%, rgba(255, 255, 255, 0.14) 72%),
+      linear-gradient(
+        180deg,
+        var(--color-mobile-overlay-start) 0%,
+        var(--color-mobile-overlay-mid) 42%,
+        var(--color-mobile-overlay-end) 72%
+      ),
       url("./images/hero-doctor.webp");
     background-position: center, 62% bottom;
     background-size: cover, auto 66%;
