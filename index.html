@@ -36,13 +36,27 @@
 
         <ul class="social-list" aria-label="Соціальні мережі">
           <li>
-            <a class="social-link" href="tel:+380960000007" aria-label="Телефон">☎</a>
+            <a class="social-link" href="tel:+380960000007" aria-label="Телефон">
+              <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.7 2.8 9 7.2 7.2 8.8c1 2.3 2.8 4.1 5.1 5.1l1.6-1.8 4.4 2.3c.5.3.8.8.7 1.4l-.4 2.5c-.1.6-.6 1.1-1.3 1.1C9.9 19.4 4.6 14.1 4.6 6.7c0-.6.4-1.2 1.1-1.3l2.5-.4c.6-.1 1.2.2 1.4.8Z" />
+              </svg>
+            </a>
           </li>
           <li>
-            <a class="social-link" href="#" aria-label="Facebook">f</a>
+            <a class="social-link" href="#contacts" aria-label="Facebook">
+              <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.4-4 4.1v2.3H8V13h2.6v8h3.1Z" />
+              </svg>
+            </a>
           </li>
           <li>
-            <a class="social-link" href="#" aria-label="Instagram">◎</a>
+            <a class="social-link" href="#contacts" aria-label="Instagram">
+              <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.6" cy="6.8" r="1" class="icon-dot" />
+              </svg>
+            </a>
           </li>
         </ul>
       </div>
@@ -79,7 +93,7 @@
             <p class="about-text">З нами краса назавжди!</p>
           </div>
 
-          <div class="about-gallery" aria-label="Результат косметологічної процедури">
+          <div class="about-gallery" role="group" aria-label="Результат косметологічної процедури">
             <img
               class="about-image about-image-before"
               src="./images/about-before.webp"
@@ -108,21 +122,30 @@
 
           <ul class="advantages-list">
             <li class="advantage-card">
-              <span class="advantage-icon" aria-hidden="true">✣</span>
+              <svg class="advantage-icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M20 5h8M22 5v12l-9 16a6 6 0 0 0 5.2 9h11.6A6 6 0 0 0 35 33l-9-16V5" />
+                <path d="M17 30h14M19 35h10" />
+              </svg>
               <p class="advantage-text">
                 Всі наші косметологи мають вищу медичну освіту та стаж роботи
                 від 5 років
               </p>
             </li>
             <li class="advantage-card">
-              <span class="advantage-icon" aria-hidden="true">♙</span>
+              <svg class="advantage-icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M18 5h12v8l5 5v22H13V18l5-5V5Z" />
+                <path d="M18 10h12M18 25h12M20 31h8" />
+              </svg>
               <p class="advantage-text">
                 Використовуємо тільки професійне обладнання та косметику,
                 перевірену часом
               </p>
             </li>
             <li class="advantage-card">
-              <span class="advantage-icon" aria-hidden="true">♕</span>
+              <svg class="advantage-icon" width="48" height="48" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="m7 16 8 7 9-13 9 13 8-7-4 22H11L7 16Z" />
+                <path d="M13 32h22" />
+              </svg>
               <p class="advantage-text">
                 Наша мета — підкреслити переваги та приховати недоліки, а не
                 переробити
@@ -138,38 +161,58 @@
             Наші <span class="accent">процедури</span>
           </h2>
 
-          <ul class="procedures-list">
-            <li class="procedure-card">
-              <img
-                class="procedure-image"
-                src="./images/procedure-mask.webp"
-                alt="Косметолог наносить маску на обличчя клієнтки"
-                width="344"
-                height="456"
-              />
-              <h3 class="procedure-name">Маски для обличчя</h3>
-            </li>
-            <li class="procedure-card">
-              <img
-                class="procedure-image"
-                src="./images/procedure-injection.webp"
-                alt="Косметолог виконує ін'єкційну процедуру"
-                width="344"
-                height="456"
-              />
-              <h3 class="procedure-name">Ін'єкції краси</h3>
-            </li>
-            <li class="procedure-card">
-              <img
-                class="procedure-image"
-                src="./images/procedure-cleaning.webp"
-                alt="Процедура апаратної чистки обличчя"
-                width="344"
-                height="456"
-              />
-              <h3 class="procedure-name">Чистка обличчя</h3>
-            </li>
-          </ul>
+          <div class="procedures-slider">
+            <button class="carousel-button carousel-button-prev" type="button" aria-label="Попередні процедури">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="m12.5 4.5-5.5 5.5 5.5 5.5" />
+              </svg>
+            </button>
+
+            <ul class="procedures-list">
+              <li class="procedure-card">
+                <img
+                  class="procedure-image"
+                  src="./images/procedure-mask.webp"
+                  alt="Косметолог наносить маску на обличчя клієнтки"
+                  width="344"
+                  height="456"
+                />
+                <h3 class="procedure-name">Маски для обличчя</h3>
+              </li>
+              <li class="procedure-card">
+                <img
+                  class="procedure-image"
+                  src="./images/procedure-injection.webp"
+                  alt="Косметолог виконує ін'єкційну процедуру"
+                  width="344"
+                  height="456"
+                />
+                <h3 class="procedure-name">Ін'єкції краси</h3>
+              </li>
+              <li class="procedure-card">
+                <img
+                  class="procedure-image"
+                  src="./images/procedure-cleaning.webp"
+                  alt="Процедура апаратної чистки обличчя"
+                  width="344"
+                  height="456"
+                />
+                <h3 class="procedure-name">Чистка обличчя</h3>
+              </li>
+            </ul>
+
+            <button class="carousel-button carousel-button-next" type="button" aria-label="Наступні процедури">
+              <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="m7.5 4.5 5.5 5.5-5.5 5.5" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="pagination" role="group" aria-label="Сторінки процедур">
+            <button class="pagination-dot pagination-dot-active" type="button" aria-label="Сторінка 1" aria-current="true"></button>
+            <button class="pagination-dot" type="button" aria-label="Сторінка 2"></button>
+            <button class="pagination-dot" type="button" aria-label="Сторінка 3"></button>
+          </div>
         </div>
       </section>
 
@@ -265,16 +308,30 @@
           >
             Україна, м. Київ, вул. Тараса Шевченка 5
           </a>
-          <div class="footer-socials" aria-label="Соціальні мережі">
-            <a class="footer-social-link" href="tel:+380960000007" aria-label="Телефон">☎</a>
-            <a class="footer-social-link" href="#" aria-label="Facebook">f</a>
-            <a class="footer-social-link" href="#" aria-label="Instagram">◎</a>
+          <div class="footer-socials" role="group" aria-label="Соціальні мережі">
+            <a class="footer-social-link" href="tel:+380960000007" aria-label="Телефон">
+              <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.7 2.8 9 7.2 7.2 8.8c1 2.3 2.8 4.1 5.1 5.1l1.6-1.8 4.4 2.3c.5.3.8.8.7 1.4l-.4 2.5c-.1.6-.6 1.1-1.3 1.1C9.9 19.4 4.6 14.1 4.6 6.7c0-.6.4-1.2 1.1-1.3l2.5-.4c.6-.1 1.2.2 1.4.8Z" />
+              </svg>
+            </a>
+            <a class="footer-social-link" href="#contacts" aria-label="Facebook">
+              <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.4-4 4.1v2.3H8V13h2.6v8h3.1Z" />
+              </svg>
+            </a>
+            <a class="footer-social-link" href="#contacts" aria-label="Instagram">
+              <svg class="social-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.6" cy="6.8" r="1" class="icon-dot" />
+              </svg>
+            </a>
           </div>
         </address>
 
         <div class="footer-info">
-          <a class="footer-link" href="#">Політика конфіденційності</a>
-          <p class="copyright">© 2024 Дані захищені</p>
+          <a class="footer-link" href="#contacts">Політика конфіденційності</a>
+          <p class="copyright">© 2022 Дані захищені</p>
         </div>
 
         <img
